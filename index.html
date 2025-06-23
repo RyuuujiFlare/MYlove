@@ -113,6 +113,7 @@
 </head>
 <body>
   <h1 id="openBtn" onclick="showBook()">Click here, my love 💜</h1>
+  
   <div id="bookContainer">
     <div id="book">
       <img id="pageImage" src="" alt="Slide Image" />
@@ -121,11 +122,10 @@
     <button onclick="nextPage()">Next Page</button>
   </div>
 
-  
   <script>
-  const pages = [
-    {
-      text: `No words could ever tell you,
+    const pages = [
+      {
+        text: `No words could ever tell you,
 No action could express
 The way I feel about you.
 With you, my life is blessed.
@@ -144,54 +144,60 @@ There's nothing I could ever say
 And nothing I could do
 To let you know just how much
 Love is in my heart for you.`,
-     image: "mylavender.jpg"
-    },
-    {
-      text: "My love,\nI know I'm not perfect. But every second I'm not with you, my heart feels the ache of distance. I miss your voice, your smile, your warmth. I want you to know how deeply I love you. More than words, more than mistakes I choose you every day.",
-      image: "lover.jpg" 
-    },
-    {
-      text: "There are moments I stumble. Moments I hurt you. But never, not for a breath, have I stopped loving you. You are my reason to grow, to soften, to change. Thank you for being patient with me.",
-      image: "mine.jpg" 
-    },
-    {
-      text: "I see you even in silence.\nI feel you in the smallest things.\nYou're my peace, my light, my love.\nI’m here, always and forever.",
-      image: "mybaby.jpg" 
-    },
-    {
-      text: "This page, this book it's all for you.\nNot because I had to, but because my heart couldn't stay silent anymore.\nI love you. I'm sorry. And I’m always going to show up even with trembling hands.",
-      image: "mykiss.jpg" 
-    },
-    {
-      text: "If this brought even the tiniest smile to you, then it was worth every second.\nYou mean everything to me.\nAlways yours mind, soul, and heart.",
-         image: "loveit.jpg"
+        image: "mylavender.jpg"
+      },
+      {
+        text: "My love,\nI know I'm not perfect. But every second I'm not with you, my heart feels the ache of distance. I miss your voice, your smile, your warmth. I want you to know how deeply I love you. More than words, more than mistakes I choose you every day.",
+        image: "lover.jpg"
+      },
+      {
+        text: "There are moments I stumble. Moments I hurt you. But never, not for a breath, have I stopped loving you. You are my reason to grow, to soften, to change. Thank you for being patient with me.",
+        image: "mine.jpg"
+      },
+      {
+        text: "I see you even in silence.\nI feel you in the smallest things.\nYou're my peace, my light, my love.\nI’m here, always and forever.",
+        image: "mybaby.jpg"
+      },
+      {
+        text: "This page, this book it's all for you.\nNot because I had to, but because my heart couldn't stay silent anymore.\nI love you. I'm sorry. And I’m always going to show up even with trembling hands.",
+        image: "mykiss.jpg"
+      },
+      {
+        text: "If this brought even the tiniest smile to you, then it was worth every second.\nYou mean everything to me.\nAlways yours mind, soul, and heart.",
+        image: "loveit.jpg"
+      }
+    ];
+
+    let currentPage = 0;
+    const pageText = document.getElementById("pageText");
+    const pageImage = document.getElementById("pageImage");
+    const bookContainer = document.getElementById("bookContainer");
+    const openBtn = document.getElementById("openBtn");
+
+    function showBook() {
+      openBtn.style.display = "none";
+      bookContainer.style.display = "flex";
+      nextPage();
     }
-  ];
 
-  let currentPage = 0;
-  const pageText = document.getElementById("pageText");
-  const pageImage = document.getElementById("pageImage");
-  const bookContainer = document.getElementById("bookContainer");
-  const openBtn = document.getElementById("openBtn");
-
-  function showBook() {
-    openBtn.style.display = "none";
-    bookContainer.style.display = "flex";
-    nextPage();
-  }
-
-  function nextPage() {
-    if (currentPage < pages.length) {
-      pageText.textContent = pages[currentPage].text;
-      pageImage.src = pages[currentPage].image;
-      pageImage.style.display = "block";
-      currentPage++;
-    } else {
-      pageText.textContent = "This book may end, but my love never will.\nI love you so much 💜";
-      pageImage.style.display = "none";
+    function nextPage() {
+      if (currentPage < pages.length) {
+        pageText.textContent = pages[currentPage].text;
+        pageImage.src = pages[currentPage].image;
+        pageImage.style.display = "block";
+        currentPage++;
+      } else {
+        pageText.textContent = "This book may end, but my love never will.\nI love you so much 💜";
+        pageImage.style.display = "none";
+      }
     }
-  }
-</script>
+  </script>
 
+
+  <div style="margin-top: 30px; width: 100%; max-width: 400px;">
+    <iframe width="100%" height="100" scrolling="no" frameborder="no" allow="autoplay"
+      src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/user-270361878/aerosmith-i-dont-wanna-miss-a-thing&color=%23ff9ee6&auto_play=false&hide_related=false&show_comments=false&show_user=true&show_reposts=false&show_teaser=false&visual=false">
+    </iframe>
+  </div>
 </body>
 </html>
