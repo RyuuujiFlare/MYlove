@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Love</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: url('https://getbubududu.com/wp-content/uploads/2025/02/Bubu-Dudu-love.png') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 20px;
+      backdrop-filter: blur(5px);
+    }
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5em;
+      color: black;
+      margin-bottom: 20px;
+      text-align: center;
+      cursor: pointer;
+    }
+    #bookContainer {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    #book {
+      width: 100%;
+      max-width: 360px;
+      background: linear-gradient(to bottom right, #fffafc, #f9e8ff);
+      border-radius: 20px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+      padding: 25px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      border: 2px dashed lavender;
+      position: relative;
+      overflow: hidden;
+    }
+    #book::before, #book::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center;
+      background-size: contain;
+      opacity: 0.15;
+    }
+    #book::before {
+      top: -20px;
+      left: -20px;
+    }
+    #book::after {
+      bottom: -20px;
+      right: -20px;
+    }
+    #pageImage {
+      max-width: 100%;
+      max-height: 200px;
+      height: auto;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+    #pageText {
+      font-size: 1.1em;
+      color: #5c5470;
+      white-space: pre-line;
+    }
+    button {
+      margin-top: 20px;
+      background: lavender;
+      color: #4a3c6e;
+      font-size: 1.1em;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #e6ddf0;
+    }
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2em;
+      }
+      #book {
+        padding: 15px;
+      }
+      button {
+        font-size: 1em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1 id="openBtn" onclick="showBook()">Click here, my love 💜</h1>
+  <div id="bookContainer">
+    <div id="book">
+      <img id="pageImage" src="" alt="Slide Image" />
+      <p id="pageText"></p>
+    </div>
+    <button onclick="nextPage()">Next Page</button>
+  </div>
+
+  
+  <script>
+  const pages = [
+    {
+      text: `No words could ever tell you,
+No action could express
+The way I feel about you.
+With you, my life is blessed.
+
+You're the light in my tunnel.
+You are my pot of gold.
+You are the strength that gets me through
+When despair has taken hold.
+
+You're my once in a lifetime.
+You make my life complete.
+You are my blue ribbon
+In the shadow of defeat.
+
+There's nothing I could ever say
+And nothing I could do
+To let you know just how much
+Love is in my heart for you.`,
+     image: "mylavender.jpg"
+    },
+    {
+      text: "My love,\nI know I'm not perfect. But every second I'm not with you, my heart feels the ache of distance. I miss your voice, your smile, your warmth. I want you to know how deeply I love you. More than words, more than mistakes I choose you every day.",
+      image: "lover.jpg" 
+    },
+    {
+      text: "There are moments I stumble. Moments I hurt you. But never, not for a breath, have I stopped loving you. You are my reason to grow, to soften, to change. Thank you for being patient with me.",
+      image: "mine.jpg" 
+    },
+    {
+      text: "I see you even in silence.\nI feel you in the smallest things.\nYou're my peace, my light, my love.\nI’m here, always and forever.",
+      image: "mybaby.jpg" 
+    },
+    {
+      text: "This page, this book it's all for you.\nNot because I had to, but because my heart couldn't stay silent anymore.\nI love you. I'm sorry. And I’m always going to show up even with trembling hands.",
+      image: "mykiss.jpg" 
+    },
+    {
+      text: "If this brought even the tiniest smile to you, then it was worth every second.\nYou mean everything to me.\nAlways yours mind, soul, and heart.",
+         image: "loveit.jpg"
+    }
+  ];
+
+  let currentPage = 0;
+  const pageText = document.getElementById("pageText");
+  const pageImage = document.getElementById("pageImage");
+  const bookContainer = document.getElementById("bookContainer");
+  const openBtn = document.getElementById("openBtn");
+
+  function showBook() {
+    openBtn.style.display = "none";
+    bookContainer.style.display = "flex";
+    nextPage();
+  }
+
+  function nextPage() {
+    if (currentPage < pages.length) {
+      pageText.textContent = pages[currentPage].text;
+      pageImage.src = pages[currentPage].image;
+      pageImage.style.display = "block";
+      currentPage++;
+    } else {
+      pageText.textContent = "This book may end, but my love never will.\nI love you so much 💜";
+      pageImage.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+</html>
